@@ -1,18 +1,21 @@
 import path from "path"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
-import { inspectAttr } from 'kimi-plugin-inspect-react'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',
-  plugins: [inspectAttr(), react()],
+  base: '/',
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
+    // Disable source maps in production
+    sourcemap: false,
+    // Use esbuild (built-in, faster than terser)
+    minify: 'esbuild',
     rollupOptions: {
       output: {
         manualChunks: {
@@ -22,7 +25,12 @@ export default defineConfig({
         },
       },
     },
-    chunkSizeWarningLimit: 1000,
+    // Gzip/Brotli compression threshold
+    chunkSizeWarningLimit: 500,
+    // Asset inlining threshold (4kb)
+    assetsInlineLimit: 4096,
+    // CSS code splitting
+    cssCodeSplit: true,
   },
   optimizeDeps: {
     include: ['react', 'react-dom', 'lucide-react'],

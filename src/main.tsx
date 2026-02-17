@@ -16,15 +16,15 @@ function Root() {
     // Initialize analytics
     initializeAnalytics();
     
-    // Hide loading screen after initial load
-    const timer = setTimeout(() => setLoading(false), 500);
+    // Minimal loading delay - prioritize LCP
+    const timer = setTimeout(() => setLoading(false), 100);
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <StrictMode>
       <ErrorBoundary>
-        {loading && <LoadingScreen minDuration={500} />}
+        {loading && <LoadingScreen minDuration={100} />}
         <App />
       </ErrorBoundary>
     </StrictMode>
