@@ -21,7 +21,7 @@ export function LoadingScreen({ minDuration = 800 }: LoadingScreenProps) {
     <div className="fixed inset-0 z-[10000] bg-[#05050A] flex items-center justify-center">
       <div className="text-center space-y-6">
         <img 
-          src="/logo.png" 
+          src="https://ik.imagekit.io/d9541kfaqh/logo.png" 
           alt="AgenticFlow" 
           width="80" 
           height="80"

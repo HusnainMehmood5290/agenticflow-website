@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
-import { ArrowRight, Calendar, Mail, CheckCircle, Zap, Clock, Shield, TrendingUp } from 'lucide-react';
+import { ArrowRight, Calendar, Mail, CheckCircle, Zap, Clock, Shield, TrendingUp, ChevronDown, Star, Users, MessageSquare } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -13,12 +13,16 @@ function App() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitSuccess, setSubmitSuccess] = useState(false);
   const [submitError, setSubmitError] = useState('');
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
   const heroRef = useRef<HTMLDivElement>(null);
   const section2Ref = useRef<HTMLDivElement>(null);
   const section3Ref = useRef<HTMLDivElement>(null);
   const section4Ref = useRef<HTMLDivElement>(null);
   const section5Ref = useRef<HTMLDivElement>(null);
   const section6Ref = useRef<HTMLDivElement>(null);
+  const howItWorksRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLDivElement>(null);
+  const faqRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -46,7 +50,7 @@ function App() {
       { threshold: 0.2, rootMargin: '-10% 0px -10% 0px' }
     );
 
-    const sections = [heroRef, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, contactRef];
+    const sections = [heroRef, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, howItWorksRef, testimonialsRef, faqRef, contactRef];
     sections.forEach((ref) => {
       if (ref.current) observer.observe(ref.current);
     });
@@ -69,7 +73,7 @@ function App() {
     const formObject = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('https://n8n.agenticflow.me:5678/webhook/form_filled', {
+      const response = await fetch('https://n8n.agenticflow.me/webhook/form_filled', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -106,13 +110,15 @@ function App() {
       <header role="banner">
         <nav className="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-6 flex items-center justify-between bg-gradient-to-b from-[#05050A] to-transparent" aria-label="Main navigation" itemScope itemType="https://schema.org/SiteNavigationElement">
           <a href="/" className="flex items-center gap-3" aria-label="AgenticFlow - Home" itemProp="url">
-            <img src="/logo.png" alt="AgenticFlow Logo" width="40" height="40" loading="eager" className="w-10 h-10" />
+            <img src="https://ik.imagekit.io/d9541kfaqh/logo.png" alt="AgenticFlow Logo" width="40" height="40" loading="eager" className="w-10 h-10" />
             <span className="text-xl font-semibold tracking-tight" itemProp="name">AgenticFlow</span>
           </a>
           <div className="hidden md:flex items-center gap-8" role="menubar">
             <a href="#work" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Work</a>
             <a href="#services" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Services</a>
-            <a href="#pricing" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Pricing</a>
+            <a href="#how-it-works" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Process</a>
+            <a href="#testimonials" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Testimonials</a>
+            <a href="#faq" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">FAQ</a>
             <a href="#contact" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Contact</a>
           </div>
           <Button 
@@ -143,7 +149,7 @@ function App() {
           aria-hidden="true"
         >
           <img 
-            src="/hero_bg.jpg" 
+            src="https://ik.imagekit.io/d9541kfaqh/hero_bg.jpg" 
             alt="" 
             loading="eager"
             fetchPriority="high"
@@ -168,7 +174,8 @@ function App() {
               </h1>
               <p className="text-lg text-[#A7ACB8] max-w-xl leading-relaxed hero-description" itemProp="description">
                 We build reliable, AI-powered workflows on n8n—so your team ships faster 
-                and scales without hiring for every task.
+                and scales without hiring for every task. From CRM automation to AI agent 
+                pipelines, we handle it all with 24/7 monitoring and 2-week delivery.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button 
@@ -199,7 +206,7 @@ function App() {
                   AGENTICFLOW — AUTOMATION STUDIO
                 </span>
                 <img 
-                  src="/portrait_card.jpg" 
+                  src="https://ik.imagekit.io/d9541kfaqh/portrait_card.jpg" 
                   alt="AI automation expert at AgenticFlow studio" 
                   loading="lazy"
                   width="600"
@@ -259,7 +266,7 @@ function App() {
             >
               <div className="card-dark overflow-hidden">
                 <img 
-                  src="/hands_laptop.jpg" 
+                  src="https://ik.imagekit.io/d9541kfaqh/hands_laptop.jpg" 
                   alt="Developer building n8n workflow automation on laptop" 
                   loading="lazy"
                   width="800"
@@ -298,7 +305,7 @@ function App() {
             <div className="card-dark overflow-hidden relative">
               <div className="absolute inset-0 bg-gradient-to-r from-[#39FF14]/5 to-transparent pointer-events-none" />
               <img 
-                src="/workflow_laptop.jpg" 
+                src="https://ik.imagekit.io/d9541kfaqh/workflow_laptop.jpg" 
                 alt="n8n workflow automation dashboard showing AI-powered integrations" 
                 loading="lazy"
                 width="1200"
@@ -346,7 +353,7 @@ function App() {
             
             <div className="card-dark overflow-hidden">
               <img 
-                src="/dashboard_laptop.jpg" 
+                src="https://ik.imagekit.io/d9541kfaqh/dashboard_laptop.jpg" 
                 alt="Business analytics dashboard showing 10+ hours saved weekly through AI automation" 
                 loading="lazy"
                 width="1200"
@@ -393,7 +400,7 @@ function App() {
                 <span className="font-mono text-xs text-[#39FF14] tracking-wider">ACTIVE</span>
               </div>
               <img 
-                src="/workspace_coffee.jpg" 
+                src="https://ik.imagekit.io/d9541kfaqh/workspace_coffee.jpg" 
                 alt="Modern workspace with AI employee running automated workflows 24/7" 
                 loading="lazy"
                 width="1200"
@@ -446,7 +453,7 @@ function App() {
                 }}
               />
               <img 
-                src="/server_room.jpg" 
+                src="https://ik.imagekit.io/d9541kfaqh/server_room.jpg" 
                 alt="Enterprise server room hosting 24/7 automated workflows with monitoring" 
                 loading="lazy"
                 width="1200"
@@ -459,6 +466,243 @@ function App() {
             <span className="absolute -bottom-4 left-8 font-mono text-xs text-[#39FF14] tracking-widest uppercase bg-[#0B0C15] px-4 py-2 rounded-full border border-[#39FF14]/20">
               MONITORED & MAINTAINED
             </span>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: How It Works */}
+      <section
+        id="how-it-works"
+        ref={howItWorksRef}
+        className="relative py-24"
+        aria-label="How It Works - Three Simple Steps to Automate Your Business"
+      >
+        <div className="w-full px-6 lg:px-16 max-w-[1400px] mx-auto">
+          <div className={`text-center space-y-6 mb-20 transition-all duration-1000 ${isVisible('how-it-works') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+            <span className="font-mono text-xs text-[#39FF14] tracking-widest uppercase">HOW IT WORKS</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              Three Steps to Automation
+            </h2>
+            <p className="text-lg text-[#A7ACB8] max-w-2xl mx-auto">
+              From discovery to deployment in under two weeks. Here's how we turn your manual processes into reliable, AI-powered n8n workflows.
+            </p>
+          </div>
+
+          <div className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-200 ${isVisible('how-it-works') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {/* Step 1 */}
+            <div className="card-dark p-8 space-y-4 relative">
+              <span className="text-6xl font-bold text-[#39FF14]/20 absolute top-4 right-6">01</span>
+              <div className="w-12 h-12 rounded-full bg-[#39FF14]/10 flex items-center justify-center">
+                <MessageSquare className="w-6 h-6 text-[#39FF14]" />
+              </div>
+              <h3 className="text-xl font-semibold">Book a Free Audit</h3>
+              <p className="text-[#A7ACB8] leading-relaxed">
+                Schedule a free 20-minute automation audit. Tell us what tasks you're doing manually—data entry, follow-ups, lead routing, reporting—and we'll identify the highest-impact automation opportunities for your business.
+              </p>
+            </div>
+            {/* Step 2 */}
+            <div className="card-dark p-8 space-y-4 relative">
+              <span className="text-6xl font-bold text-[#39FF14]/20 absolute top-4 right-6">02</span>
+              <div className="w-12 h-12 rounded-full bg-[#39FF14]/10 flex items-center justify-center">
+                <Zap className="w-6 h-6 text-[#39FF14]" />
+              </div>
+              <h3 className="text-xl font-semibold">We Build & Ship</h3>
+              <p className="text-[#A7ACB8] leading-relaxed">
+                Our team designs, develops, and deploys your custom n8n workflows within 2 weeks. We integrate with your existing tools—CRM, Slack, Gmail, Google Sheets, Notion, Airtable, and 400+ other apps—so nothing breaks your current stack.
+              </p>
+            </div>
+            {/* Step 3 */}
+            <div className="card-dark p-8 space-y-4 relative">
+              <span className="text-6xl font-bold text-[#39FF14]/20 absolute top-4 right-6">03</span>
+              <div className="w-12 h-12 rounded-full bg-[#39FF14]/10 flex items-center justify-center">
+                <Shield className="w-6 h-6 text-[#39FF14]" />
+              </div>
+              <h3 className="text-xl font-semibold">Monitor & Scale</h3>
+              <p className="text-[#A7ACB8] leading-relaxed">
+                Your workflows run 24/7 with self-healing retry logic, real-time error alerts, and detailed run logs. We monitor, maintain, and continuously optimize your automations so they scale as your business grows—without you lifting a finger.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: Testimonials / Social Proof */}
+      <section
+        id="testimonials"
+        ref={testimonialsRef}
+        className="relative py-24"
+        aria-label="Client Testimonials - What Our Clients Say"
+      >
+        <div className="w-full px-6 lg:px-16 max-w-[1400px] mx-auto">
+          <div className={`text-center space-y-6 mb-16 transition-all duration-1000 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+            <span className="font-mono text-xs text-[#39FF14] tracking-widest uppercase">TESTIMONIALS</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              Trusted by Growing Teams
+            </h2>
+            <p className="text-lg text-[#A7ACB8] max-w-2xl mx-auto">
+              Businesses across e-commerce, SaaS, and professional services rely on AgenticFlow to automate their operations and reclaim hours every week.
+            </p>
+          </div>
+
+          {/* Stats Row */}
+          <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 transition-all duration-1000 delay-100 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="card-dark p-6 text-center">
+              <p className="text-3xl font-bold text-[#39FF14]">50+</p>
+              <p className="text-sm text-[#A7ACB8] mt-1">Workflows Deployed</p>
+            </div>
+            <div className="card-dark p-6 text-center">
+              <p className="text-3xl font-bold text-[#39FF14]">10+</p>
+              <p className="text-sm text-[#A7ACB8] mt-1">Hours Saved Weekly</p>
+            </div>
+            <div className="card-dark p-6 text-center">
+              <p className="text-3xl font-bold text-[#39FF14]">99.9%</p>
+              <p className="text-sm text-[#A7ACB8] mt-1">Uptime Guarantee</p>
+            </div>
+            <div className="card-dark p-6 text-center">
+              <p className="text-3xl font-bold text-[#39FF14]">2 Weeks</p>
+              <p className="text-sm text-[#A7ACB8] mt-1">Average Delivery</p>
+            </div>
+          </div>
+
+          {/* Testimonial Cards */}
+          <div className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            <div className="card-dark p-8 space-y-4">
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[#39FF14] text-[#39FF14]" />)}
+              </div>
+              <p className="text-[#A7ACB8] leading-relaxed italic">
+                "AgenticFlow automated our entire lead qualification pipeline. What used to take 3 hours of manual CRM updates every day now runs entirely on autopilot. The ROI was visible within the first week."
+              </p>
+              <div className="flex items-center gap-3 pt-2">
+                <div className="w-10 h-10 rounded-full bg-[#39FF14]/20 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-[#39FF14]" />
+                </div>
+                <div>
+                  <p className="font-semibold text-sm">Sarah K.</p>
+                  <p className="text-xs text-[#A7ACB8]">Operations Lead, SaaS Startup</p>
+                </div>
+              </div>
+            </div>
+            <div className="card-dark p-8 space-y-4">
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[#39FF14] text-[#39FF14]" />)}
+              </div>
+              <p className="text-[#A7ACB8] leading-relaxed italic">
+                "We needed n8n workflow automation for our e-commerce order processing and returns management. AgenticFlow delivered in 10 days with Slack notifications, auto-tagging, and full audit logs. Incredible work."
+              </p>
+              <div className="flex items-center gap-3 pt-2">
+                <div className="w-10 h-10 rounded-full bg-[#39FF14]/20 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-[#39FF14]" />
+                </div>
+                <div>
+                  <p className="font-semibold text-sm">Marcus T.</p>
+                  <p className="text-xs text-[#A7ACB8]">Founder, E-Commerce Brand</p>
+                </div>
+              </div>
+            </div>
+            <div className="card-dark p-8 space-y-4">
+              <div className="flex gap-1">
+                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[#39FF14] text-[#39FF14]" />)}
+              </div>
+              <p className="text-[#A7ACB8] leading-relaxed italic">
+                "The 24/7 monitoring alone is worth it. We had a critical API change at 2 AM and AgenticFlow's self-healing workflows handled it automatically. No downtime, no manual intervention needed. Highly recommend for any team doing business process automation."
+              </p>
+              <div className="flex items-center gap-3 pt-2">
+                <div className="w-10 h-10 rounded-full bg-[#39FF14]/20 flex items-center justify-center">
+                  <Users className="w-5 h-5 text-[#39FF14]" />
+                </div>
+                <div>
+                  <p className="font-semibold text-sm">David L.</p>
+                  <p className="text-xs text-[#A7ACB8]">CTO, Agency</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: FAQ */}
+      <section
+        id="faq"
+        ref={faqRef}
+        className="relative py-24"
+        aria-label="Frequently Asked Questions About AI Automation"
+        itemScope
+        itemType="https://schema.org/FAQPage"
+      >
+        <div className="w-full px-6 lg:px-16 max-w-[900px] mx-auto">
+          <div className={`text-center space-y-6 mb-16 transition-all duration-1000 ${isVisible('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+            <span className="font-mono text-xs text-[#39FF14] tracking-widest uppercase">FAQ</span>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-lg text-[#A7ACB8] max-w-2xl mx-auto">
+              Everything you need to know about our n8n automation services, pricing, and how we help businesses save time and scale faster.
+            </p>
+          </div>
+
+          <div className={`space-y-4 transition-all duration-1000 delay-200 ${isVisible('faq') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {[
+              {
+                q: "What is AgenticFlow and how is it different from other automation agencies?",
+                a: "AgenticFlow is a specialized AI workflow automation agency built on n8n—the most powerful open-source automation platform. Unlike generic agencies, we focus exclusively on n8n workflows integrated with AI models (GPT, Claude, etc.), giving you more control, lower costs, and self-healing automations that run 24/7. We don't just build workflows—we host, monitor, and continuously improve them."
+              },
+              {
+                q: "How much time can I realistically save with AI automation?",
+                a: "Most clients save 10–20+ hours per week by automating repetitive tasks like data entry, lead follow-ups, report generation, email routing, CRM updates, and customer onboarding. The exact savings depend on your current workflows, but we identify the highest-ROI opportunities during your free audit."
+              },
+              {
+                q: "What tools and platforms do you integrate with?",
+                a: "We integrate with 400+ tools through n8n's extensive connector library: CRMs (HubSpot, Salesforce, Pipedrive), communication tools (Slack, Gmail, Microsoft Teams), databases (Google Sheets, Airtable, Notion, PostgreSQL), AI models (OpenAI GPT-4, Anthropic Claude, Google Gemini), e-commerce platforms (Shopify, WooCommerce), and many more via webhooks and custom APIs."
+              },
+              {
+                q: "How long does it take to build and deploy a custom automation?",
+                a: "We deliver working automation workflows within 2 weeks from kickoff. Simple single-tool automations may ship even faster. Complex multi-system integrations involving custom API work or AI agent chains may take 3–4 weeks, but we always provide a clear timeline during your free audit call."
+              },
+              {
+                q: "What does the free automation audit include?",
+                a: "Our free 20-minute automation audit covers: (1) a detailed analysis of your current manual processes, (2) identification of the top automation opportunities ranked by ROI, (3) a recommended workflow architecture with specific n8n nodes and integrations, and (4) a transparent cost estimate with no hidden fees. There's zero commitment required."
+              },
+              {
+                q: "Do you provide 24/7 workflow monitoring and support?",
+                a: "Yes. All our managed workflows include 24/7 monitoring with self-healing retry logic, real-time error alerts (via Slack or email), detailed execution logs, and proactive maintenance. If an API changes or a workflow fails, we detect it automatically and fix it—often before you even notice."
+              },
+              {
+                q: "Is my data secure with AgenticFlow?",
+                a: "Absolutely. We use enterprise-grade security: encrypted data transmission (TLS/SSL), secure self-hosted n8n instances, strict access controls, and compliance with industry standards. Your data only flows through your approved integrations—we never store or access your business data outside the workflow execution context."
+              },
+              {
+                q: "What does pricing look like for n8n workflow automation?",
+                a: "We offer flexible pricing: one-time project builds (starting from a flat fee for single workflows) and monthly managed plans (which include hosting, monitoring, maintenance, and ongoing optimization). Every engagement starts with a free audit so you know exactly what you're getting before any commitment."
+              }
+            ].map((faq, i) => (
+              <div 
+                key={i} 
+                className="card-dark overflow-hidden"
+                itemScope 
+                itemProp="mainEntity" 
+                itemType="https://schema.org/Question"
+              >
+                <button
+                  className="w-full flex items-center justify-between p-6 text-left hover:bg-[#F4F6FA]/5 transition-colors"
+                  onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
+                  aria-controls={`faq-answer-${i}`}
+                >
+                  <span className="font-semibold pr-4" itemProp="name">{faq.q}</span>
+                  <ChevronDown className={`w-5 h-5 text-[#39FF14] flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`} />
+                </button>
+                <div 
+                  id={`faq-answer-${i}`}
+                  className={`transition-all duration-300 ${openFaq === i ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'} overflow-hidden`}
+                  itemScope 
+                  itemProp="acceptedAnswer" 
+                  itemType="https://schema.org/Answer"
+                >
+                  <p className="px-6 pb-6 text-[#A7ACB8] leading-relaxed" itemProp="text">{faq.a}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -623,20 +867,60 @@ function App() {
       </main>
 
         {/* Footer */}
-        <footer className="w-full px-6 lg:px-16 py-12 border-t border-[#F4F6FA]/10" role="contentinfo" itemScope itemType="https://schema.org/WPFooter">
-          <div className="max-w-[1600px] mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
-            <a href="/" className="flex items-center gap-3" aria-label="AgenticFlow Home">
-              <img src="/logo.png" alt="AgenticFlow" width="32" height="32" loading="lazy" className="w-8 h-8" />
-              <span className="text-lg font-semibold">AgenticFlow</span>
-            </a>
-            <nav aria-label="Footer navigation" className="flex items-center gap-8">
-              <a href="mailto:contact@agenticflow.me" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors" aria-label="Email AgenticFlow">Contact</a>
-              <a href="https://www.linkedin.com/in/husnainmehmood" target="_blank" rel="noopener noreferrer" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors" aria-label="Visit Husnain Mehmood on LinkedIn">LinkedIn</a>
-              <a href="https://github.com/HusnainMehmood5290" target="_blank" rel="noopener noreferrer" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors" aria-label="Visit AgenticFlow on GitHub">GitHub</a>
-            </nav>
-            <p className="text-sm text-[#A7ACB8]">
-              <span itemProp="copyrightYear">2026</span> © <span itemProp="copyrightHolder">AgenticFlow by Husnain Mehmood</span>. All rights reserved.
-            </p>
+        <footer className="w-full px-6 lg:px-16 py-16 border-t border-[#F4F6FA]/10" role="contentinfo" itemScope itemType="https://schema.org/WPFooter">
+          <div className="max-w-[1600px] mx-auto">
+            {/* Top Footer */}
+            <div className="grid md:grid-cols-4 gap-12 mb-12">
+              {/* Brand */}
+              <div className="space-y-4">
+                <a href="/" className="flex items-center gap-3" aria-label="AgenticFlow Home">
+                  <img src="https://ik.imagekit.io/d9541kfaqh/logo.png" alt="AgenticFlow" width="32" height="32" loading="lazy" className="w-8 h-8" />
+                  <span className="text-lg font-semibold">AgenticFlow</span>
+                </a>
+                <p className="text-sm text-[#A7ACB8] leading-relaxed">
+                  AI-powered business automation agency specializing in n8n workflow development, deployment, and 24/7 managed monitoring. We help teams save 10+ hours weekly.
+                </p>
+              </div>
+              {/* Services */}
+              <div className="space-y-4">
+                <h4 className="font-semibold text-sm uppercase tracking-wider">Services</h4>
+                <nav aria-label="Services navigation" className="flex flex-col gap-2">
+                  <a href="#work" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">n8n Workflow Development</a>
+                  <a href="#services" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">AI Agent Integration</a>
+                  <a href="#ai-employee" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Managed Automation (AI Employee)</a>
+                  <a href="#reliability" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">24/7 Monitoring & Maintenance</a>
+                  <a href="#contact" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Free Automation Audit</a>
+                </nav>
+              </div>
+              {/* Resources */}
+              <div className="space-y-4">
+                <h4 className="font-semibold text-sm uppercase tracking-wider">Resources</h4>
+                <nav aria-label="Resources navigation" className="flex flex-col gap-2">
+                  <a href="#how-it-works" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">How It Works</a>
+                  <a href="#pricing" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Pricing & ROI</a>
+                  <a href="#testimonials" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Client Testimonials</a>
+                  <a href="#faq" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">FAQ</a>
+                </nav>
+              </div>
+              {/* Connect */}
+              <div className="space-y-4">
+                <h4 className="font-semibold text-sm uppercase tracking-wider">Connect</h4>
+                <nav aria-label="Social navigation" className="flex flex-col gap-2">
+                  <a href="mailto:contact@agenticflow.me" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">contact@agenticflow.me</a>
+                  <a href="https://www.linkedin.com/in/husnainmehmood" target="_blank" rel="noopener noreferrer" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">LinkedIn</a>
+                  <a href="https://github.com/HusnainMehmood5290" target="_blank" rel="noopener noreferrer" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">GitHub</a>
+                </nav>
+              </div>
+            </div>
+            {/* Bottom Footer */}
+            <div className="pt-8 border-t border-[#F4F6FA]/10 flex flex-col md:flex-row items-center justify-between gap-4">
+              <p className="text-sm text-[#A7ACB8]">
+                <span itemProp="copyrightYear">2026</span> © <span itemProp="copyrightHolder">AgenticFlow by Husnain Mehmood</span>. All rights reserved.
+              </p>
+              <p className="text-xs text-[#A7ACB8]/60">
+                n8n workflow automation · AI business automation · hire n8n developer · workflow automation agency
+              </p>
+            </div>
           </div>
         </footer>
 

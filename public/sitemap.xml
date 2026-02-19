@@ -9,27 +9,27 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>https://agenticflow.me/hero_bg.jpg</image:loc>
+      <image:loc>https://ik.imagekit.io/d9541kfaqh/hero_bg.jpg</image:loc>
       <image:title>AgenticFlow AI Automation Platform</image:title>
       <image:caption>AI-powered workflows that run your business 24/7 - save 10+ hours weekly</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://agenticflow.me/logo.png</image:loc>
+      <image:loc>https://ik.imagekit.io/d9541kfaqh/logo.png</image:loc>
       <image:title>AgenticFlow Logo</image:title>
       <image:caption>AgenticFlow - AI-Powered Business Automation</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://agenticflow.me/workflow_laptop.jpg</image:loc>
+      <image:loc>https://ik.imagekit.io/d9541kfaqh/workflow_laptop.jpg</image:loc>
       <image:title>n8n Workflow Automation Dashboard</image:title>
       <image:caption>AI-powered workflow automation integrations and maintenance</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://agenticflow.me/dashboard_laptop.jpg</image:loc>
+      <image:loc>https://ik.imagekit.io/d9541kfaqh/dashboard_laptop.jpg</image:loc>
       <image:title>Business Analytics Dashboard</image:title>
       <image:caption>Save 10+ hours weekly with automated data entry, follow-ups, routing, and reporting</image:caption>
     </image:image>
     <image:image>
-      <image:loc>https://agenticflow.me/server_room.jpg</image:loc>
+      <image:loc>https://ik.imagekit.io/d9541kfaqh/server_room.jpg</image:loc>
       <image:title>Enterprise Server Infrastructure</image:title>
       <image:caption>24/7 monitored and maintained self-healing workflows</image:caption>
     </image:image>
