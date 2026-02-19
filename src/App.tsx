@@ -3,8 +3,6 @@ import { ArrowRight, Calendar, Mail, CheckCircle, Zap, Clock, Shield, TrendingUp
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { ScrollToTop } from '@/components/ScrollToTop';
-import { SkipToContent } from '@/components/SkipToContent';
 import { trackButtonClick, trackFormSubmit } from '@/lib/analytics';
 
 function App() {
@@ -101,39 +99,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-[#05050A] text-[#F4F6FA] overflow-x-hidden" itemScope itemType="https://schema.org/WebPage">
-      <SkipToContent />
-      {/* Noise Overlay */}
-      <div className="noise-overlay" aria-hidden="true" />
-
-      {/* Navigation */}
-      <header role="banner">
-        <nav className="fixed top-0 left-0 right-0 z-50 px-6 lg:px-12 py-6 flex items-center justify-between bg-gradient-to-b from-[#05050A] to-transparent" aria-label="Main navigation" itemScope itemType="https://schema.org/SiteNavigationElement">
-          <a href="/" className="flex items-center gap-3" aria-label="AgenticFlow - Home" itemProp="url">
-            <img src="https://ik.imagekit.io/d9541kfaqh/logo.png" alt="AgenticFlow Logo" width="40" height="40" loading="eager" className="w-10 h-10" />
-            <span className="text-xl font-semibold tracking-tight" itemProp="name">AgenticFlow</span>
-          </a>
-          <div className="hidden md:flex items-center gap-8" role="menubar">
-            <a href="#work" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Work</a>
-            <a href="#services" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Services</a>
-            <a href="#how-it-works" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Process</a>
-            <a href="#testimonials" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Testimonials</a>
-            <a href="#faq" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">FAQ</a>
-            <a href="#contact" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Contact</a>
-          </div>
-          <Button 
-            className="border-[#39FF14] text-[#39FF14] hover:bg-[#39FF14] hover:text-[#05050A] transition-all glow-accent"
-            variant="outline"
-            aria-label="Book a call with AgenticFlow"
-            onClick={() => { trackButtonClick('book_call_nav'); document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' }); }}
-          >
-            Book a call
-          </Button>
-        </nav>
-      </header>
-
-      {/* Main Content Area */}
-      <main id="main-content" role="main" itemScope itemType="https://schema.org/Service">
+    <div className="pt-0" itemScope itemType="https://schema.org/WebPage">
 
       {/* Section 1: Hero */}
       <section
@@ -864,68 +830,6 @@ function App() {
         </div>
       </section>
 
-      </main>
-
-        {/* Footer */}
-        <footer className="w-full px-6 lg:px-16 py-16 border-t border-[#F4F6FA]/10" role="contentinfo" itemScope itemType="https://schema.org/WPFooter">
-          <div className="max-w-[1600px] mx-auto">
-            {/* Top Footer */}
-            <div className="grid md:grid-cols-4 gap-12 mb-12">
-              {/* Brand */}
-              <div className="space-y-4">
-                <a href="/" className="flex items-center gap-3" aria-label="AgenticFlow Home">
-                  <img src="https://ik.imagekit.io/d9541kfaqh/logo.png" alt="AgenticFlow" width="32" height="32" loading="lazy" className="w-8 h-8" />
-                  <span className="text-lg font-semibold">AgenticFlow</span>
-                </a>
-                <p className="text-sm text-[#A7ACB8] leading-relaxed">
-                  AI-powered business automation agency specializing in n8n workflow development, deployment, and 24/7 managed monitoring. We help teams save 10+ hours weekly.
-                </p>
-              </div>
-              {/* Services */}
-              <div className="space-y-4">
-                <h4 className="font-semibold text-sm uppercase tracking-wider">Services</h4>
-                <nav aria-label="Services navigation" className="flex flex-col gap-2">
-                  <a href="#work" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">n8n Workflow Development</a>
-                  <a href="#services" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">AI Agent Integration</a>
-                  <a href="#ai-employee" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Managed Automation (AI Employee)</a>
-                  <a href="#reliability" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">24/7 Monitoring & Maintenance</a>
-                  <a href="#contact" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Free Automation Audit</a>
-                </nav>
-              </div>
-              {/* Resources */}
-              <div className="space-y-4">
-                <h4 className="font-semibold text-sm uppercase tracking-wider">Resources</h4>
-                <nav aria-label="Resources navigation" className="flex flex-col gap-2">
-                  <a href="#how-it-works" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">How It Works</a>
-                  <a href="#pricing" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Pricing & ROI</a>
-                  <a href="#testimonials" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Client Testimonials</a>
-                  <a href="#faq" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">FAQ</a>
-                </nav>
-              </div>
-              {/* Connect */}
-              <div className="space-y-4">
-                <h4 className="font-semibold text-sm uppercase tracking-wider">Connect</h4>
-                <nav aria-label="Social navigation" className="flex flex-col gap-2">
-                  <a href="mailto:contact@agenticflow.me" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">contact@agenticflow.me</a>
-                  <a href="https://www.linkedin.com/in/husnainmehmood" target="_blank" rel="noopener noreferrer" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">LinkedIn</a>
-                  <a href="https://github.com/HusnainMehmood5290" target="_blank" rel="noopener noreferrer" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">GitHub</a>
-                </nav>
-              </div>
-            </div>
-            {/* Bottom Footer */}
-            <div className="pt-8 border-t border-[#F4F6FA]/10 flex flex-col md:flex-row items-center justify-between gap-4">
-              <p className="text-sm text-[#A7ACB8]">
-                <span itemProp="copyrightYear">2026</span> © <span itemProp="copyrightHolder">AgenticFlow by Husnain Mehmood</span>. All rights reserved.
-              </p>
-              <p className="text-xs text-[#A7ACB8]/60">
-                n8n workflow automation · AI business automation · hire n8n developer · workflow automation agency
-              </p>
-            </div>
-          </div>
-        </footer>
-
-      {/* Scroll to Top Button */}
-      <ScrollToTop />
     </div>
   );
 }
