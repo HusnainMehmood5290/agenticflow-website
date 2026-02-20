@@ -10,15 +10,29 @@ export default function AboutPage() {
         <div className="max-w-[1200px] mx-auto">
           <span className="font-mono text-xs text-[#39FF14] tracking-widest uppercase block mb-6">ABOUT AGENTICFLOW</span>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight mb-8">
-            We Build AI Systems That<br />
-            <span className="text-[#39FF14]">Run Your Business 24/7</span>
+            About<br />
+            <span className="text-[#39FF14]">AgenticFlow</span>
           </h1>
           <p className="text-lg text-[#A7ACB8] max-w-3xl leading-relaxed mb-8">
-            AgenticFlow is an AI workflow automation agency founded by Husnain Mehmood. We specialize in building, deploying, and managing n8n-powered automation workflows that eliminate repetitive tasks, reduce operational costs, and help businesses scale without adding headcount.
+            AgenticFlow is an n8n workflow automation agency helping businesses eliminate repetitive manual tasks through intelligent AI-powered automation.
           </p>
-          <p className="text-lg text-[#A7ACB8] max-w-3xl leading-relaxed">
-            Our mission is simple: take the manual, time-consuming processes that slow your team down and turn them into intelligent, self-healing automations that work around the clock. Whether you're a startup looking to ship faster or an established business tired of operational bottlenecks, we build the systems that set you free.
+          <p className="text-lg text-[#A7ACB8] max-w-3xl leading-relaxed mb-8">
+            We specialize in building, deploying, and maintaining custom workflows that run 24/7 — so you can focus on growing your business, not managing it.
           </p>
+
+          <div className="card-dark p-8 max-w-3xl space-y-4 mb-8">
+            <h2 className="text-xl font-semibold">What We Believe</h2>
+            <p className="text-[#A7ACB8] leading-relaxed">
+              Every hour spent on manual repetitive tasks is an hour stolen from real growth. Automation isn't a luxury — it's a necessity for modern businesses.
+            </p>
+          </div>
+
+          <div className="card-dark p-8 max-w-3xl space-y-4">
+            <h2 className="text-xl font-semibold">What Makes Us Different</h2>
+            <p className="text-[#A7ACB8] leading-relaxed">
+              We don't just build and disappear. We monitor, maintain, and continuously improve your workflows every month.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -115,11 +129,11 @@ export default function AboutPage() {
             Book a free 20-minute automation audit. We'll identify your highest-impact automation opportunities and show you exactly how we'd build them.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
-            <Link to="/contact">
+            <a href="https://calendly.com/husnainmehmood5290/30min" target="_blank" rel="noopener noreferrer">
               <Button className="bg-[#39FF14] text-[#05050A] hover:bg-[#2dd40e] px-8 py-6 text-base font-semibold glow-accent-strong">
                 Book a Free Audit <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
-            </Link>
+            </a>
             <Link to="/case-studies">
               <Button variant="outline" className="border-[#39FF14] text-[#39FF14] hover:bg-[#39FF14] hover:text-[#05050A] px-8 py-6 text-base">
                 View Case Studies

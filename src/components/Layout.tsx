@@ -31,7 +31,7 @@ export default function Layout() {
             <Link to="/blog" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Blog</Link>
             <Link to="/contact" role="menuitem" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Contact</Link>
           </div>
-          <Link to="/contact">
+          <a href="https://calendly.com/husnainmehmood5290/30min" target="_blank" rel="noopener noreferrer">
             <Button
               className="border-[#39FF14] text-[#39FF14] hover:bg-[#39FF14] hover:text-[#05050A] transition-all glow-accent"
               variant="outline"
@@ -40,7 +40,7 @@ export default function Layout() {
             >
               Book a call
             </Button>
-          </Link>
+          </a>
         </nav>
       </header>
 
@@ -87,6 +87,7 @@ export default function Layout() {
                 <a href="mailto:contact@agenticflow.me" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">contact@agenticflow.me</a>
                 <a href="https://www.linkedin.com/in/husnainmehmood" target="_blank" rel="noopener noreferrer" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">LinkedIn</a>
                 <a href="https://github.com/HusnainMehmood5290" target="_blank" rel="noopener noreferrer" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">GitHub</a>
+                <a href="https://calendly.com/husnainmehmood5290/30min" target="_blank" rel="noopener noreferrer" className="text-sm text-[#A7ACB8] hover:text-[#39FF14] transition-colors">Book a Call</a>
               </nav>
             </div>
           </div>

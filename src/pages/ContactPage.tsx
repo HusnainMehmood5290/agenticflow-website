@@ -55,9 +55,17 @@ export default function ContactPage() {
             Let's Build Your<br />
             <span className="text-[#39FF14]">First Workflow</span>
           </h1>
-          <p className="text-lg text-[#A7ACB8] max-w-2xl leading-relaxed">
-            Book a free 20-minute automation audit. Tell us what you're doing manually — we'll map it, quote it, and ship it in 2 weeks.
+          <p className="text-lg text-[#A7ACB8] max-w-2xl leading-relaxed mb-8">
+            Tell us what manual tasks are slowing you down. We'll show you exactly how to automate them.
           </p>
+          <div className="flex flex-wrap gap-6">
+            <a href="mailto:contact@agenticflow.me" className="flex items-center gap-2 text-[#A7ACB8] hover:text-[#39FF14] transition-colors">
+              <Mail className="w-5 h-5 text-[#39FF14]" /> contact@agenticflow.me
+            </a>
+            <a href="https://calendly.com/husnainmehmood5290/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-[#A7ACB8] hover:text-[#39FF14] transition-colors">
+              <Calendar className="w-5 h-5 text-[#39FF14]" /> Book a call on Calendly
+            </a>
+          </div>
         </div>
       </section>
 
@@ -163,31 +171,27 @@ export default function ContactPage() {
                 <div className="flex items-start gap-4">
                   <Phone className="w-5 h-5 text-[#39FF14] mt-1 flex-shrink-0" />
                   <div>
-                    <p className="font-medium text-sm">Preferred Contact</p>
-                    <p className="text-[#A7ACB8] text-sm">Email or form submission for fastest response</p>
+                    <p className="font-medium text-sm">Book a Call</p>
+                    <a href="https://calendly.com/husnainmehmood5290/30min" target="_blank" rel="noopener noreferrer" className="text-[#39FF14] text-sm hover:underline">Schedule on Calendly →</a>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="card-dark p-8 space-y-4">
-              <h3 className="text-xl font-semibold">What Happens Next?</h3>
+              <h3 className="text-xl font-semibold">What Happens on the Call?</h3>
               <ol className="space-y-3 text-[#A7ACB8] text-sm">
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-[#39FF14]/10 text-[#39FF14] flex items-center justify-center flex-shrink-0 text-xs font-bold">1</span>
-                  <span>We review your submission and identify initial automation opportunities within 24 hours.</span>
+                  <span>We review your current manual processes</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-[#39FF14]/10 text-[#39FF14] flex items-center justify-center flex-shrink-0 text-xs font-bold">2</span>
-                  <span>We schedule a free 20-minute video call to discuss your specific workflows and goals.</span>
+                  <span>We identify the top 3 automation opportunities</span>
                 </li>
                 <li className="flex items-start gap-3">
                   <span className="w-6 h-6 rounded-full bg-[#39FF14]/10 text-[#39FF14] flex items-center justify-center flex-shrink-0 text-xs font-bold">3</span>
-                  <span>You receive a detailed proposal with recommended automations, timeline, and transparent pricing.</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="w-6 h-6 rounded-full bg-[#39FF14]/10 text-[#39FF14] flex items-center justify-center flex-shrink-0 text-xs font-bold">4</span>
-                  <span>If you approve, we start building and deliver working workflows within 2 weeks.</span>
+                  <span>We give you a custom plan — free, no obligation</span>
                 </li>
               </ol>
             </div>

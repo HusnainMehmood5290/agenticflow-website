@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useMemo } from 'react';
-import { ArrowRight, Calendar, Mail, CheckCircle, Zap, Clock, Shield, TrendingUp, ChevronDown, Star, Users, MessageSquare } from 'lucide-react';
+import { ArrowRight, Calendar, Mail, CheckCircle, Zap, Clock, Shield, TrendingUp, ChevronDown, Star, Users, MessageSquare, Globe, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -22,6 +22,9 @@ function App() {
   const testimonialsRef = useRef<HTMLDivElement>(null);
   const faqRef = useRef<HTMLDivElement>(null);
   const contactRef = useRef<HTMLDivElement>(null);
+  const pricingPlansRef = useRef<HTMLDivElement>(null);
+  const whyChooseRef = useRef<HTMLDivElement>(null);
+  const toolsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,7 +51,7 @@ function App() {
       { threshold: 0.2, rootMargin: '-10% 0px -10% 0px' }
     );
 
-    const sections = [heroRef, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, howItWorksRef, testimonialsRef, faqRef, contactRef];
+    const sections = [heroRef, section2Ref, section3Ref, section4Ref, section5Ref, section6Ref, pricingPlansRef, whyChooseRef, toolsRef, howItWorksRef, testimonialsRef, faqRef, contactRef];
     sections.forEach((ref) => {
       if (ref.current) observer.observe(ref.current);
     });
@@ -436,6 +439,156 @@ function App() {
         </div>
       </section>
 
+      {/* Section: Pricing Plans */}
+      <section
+        id="pricing-plans"
+        ref={pricingPlansRef}
+        className="relative py-24"
+        aria-label="Pricing Plans"
+      >
+        <div className="w-full px-6 lg:px-16 max-w-[1400px] mx-auto">
+          <div className={`text-center space-y-6 mb-20 transition-all duration-1000 ${isVisible('pricing-plans') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+            <span className="font-mono text-xs text-[#39FF14] tracking-widest uppercase">PRICING</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-lg text-[#A7ACB8] max-w-2xl mx-auto">
+              Choose the plan that fits your automation needs. All plans include 24/7 monitoring and ongoing support.
+            </p>
+          </div>
+
+          <div className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-200 ${isVisible('pricing-plans') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {/* Starter */}
+            <div className="card-dark p-8 space-y-6 relative">
+              <div>
+                <h3 className="text-xl font-semibold mb-1">Starter</h3>
+                <p className="text-3xl font-bold text-[#39FF14]">$299<span className="text-base font-normal text-[#A7ACB8]">/month</span></p>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />3 Custom n8n Workflows</li>
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />24/7 Monitoring</li>
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />Monthly Optimization</li>
+              </ul>
+              <a href="https://calendly.com/husnainmehmood5290/30min" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="w-full border-[#39FF14] text-[#39FF14] hover:bg-[#39FF14] hover:text-[#05050A] py-5">
+                  Get Started <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </a>
+            </div>
+            {/* Growth */}
+            <div className="card-dark p-8 space-y-6 relative border-[#39FF14]/30">
+              <span className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 bg-[#39FF14] text-[#05050A] text-xs font-bold rounded-full uppercase">Most Popular</span>
+              <div>
+                <h3 className="text-xl font-semibold mb-1">Growth</h3>
+                <p className="text-3xl font-bold text-[#39FF14]">$599<span className="text-base font-normal text-[#A7ACB8]">/month</span></p>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />10 Custom Workflows</li>
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />AI Agent Integration</li>
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />Priority Support</li>
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />Weekly Reports</li>
+              </ul>
+              <a href="https://calendly.com/husnainmehmood5290/30min" target="_blank" rel="noopener noreferrer">
+                <Button className="w-full bg-[#39FF14] text-[#05050A] hover:bg-[#2dd40e] py-5 font-semibold">
+                  Get Started <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </a>
+            </div>
+            {/* Enterprise */}
+            <div className="card-dark p-8 space-y-6 relative">
+              <div>
+                <h3 className="text-xl font-semibold mb-1">Enterprise</h3>
+                <p className="text-3xl font-bold text-[#39FF14]">Custom<span className="text-base font-normal text-[#A7ACB8]"> Price</span></p>
+              </div>
+              <ul className="space-y-3">
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />Unlimited Workflows</li>
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />Dedicated Manager</li>
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />SLA Guarantee</li>
+                <li className="flex items-center gap-3 text-[#A7ACB8]"><CheckCircle className="w-5 h-5 text-[#39FF14] flex-shrink-0" />White-label Option</li>
+              </ul>
+              <a href="https://calendly.com/husnainmehmood5290/30min" target="_blank" rel="noopener noreferrer">
+                <Button variant="outline" className="w-full border-[#39FF14] text-[#39FF14] hover:bg-[#39FF14] hover:text-[#05050A] py-5">
+                  Contact Us <ArrowRight className="ml-2 w-4 h-4" />
+                </Button>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Section: Why Choose Us */}
+      <section
+        id="why-choose-us"
+        ref={whyChooseRef}
+        className="relative py-24"
+        aria-label="Why Choose AgenticFlow"
+      >
+        <div className="w-full px-6 lg:px-16 max-w-[1400px] mx-auto">
+          <div className={`text-center space-y-6 mb-20 transition-all duration-1000 ${isVisible('why-choose-us') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+            <span className="font-mono text-xs text-[#39FF14] tracking-widest uppercase">WHY US</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              Why Choose AgenticFlow?
+            </h2>
+          </div>
+
+          <div className={`grid md:grid-cols-2 lg:grid-cols-5 gap-6 transition-all duration-1000 delay-200 ${isVisible('why-choose-us') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {[
+              { icon: <Clock className="w-6 h-6" />, title: 'Delivered in 2 Weeks', desc: 'No long waiting — fast turnaround on every project.' },
+              { icon: <Zap className="w-6 h-6" />, title: 'n8n Specialists', desc: 'Not generalists — deep expertise in n8n automation.' },
+              { icon: <Globe className="w-6 h-6" />, title: '400+ Integrations', desc: 'Connect any tool in your stack seamlessly.' },
+              { icon: <Award className="w-6 h-6" />, title: 'Money-Back Guarantee', desc: 'If not satisfied, we\'ll refund your payment.' },
+              { icon: <Shield className="w-6 h-6" />, title: 'Ongoing Support', desc: 'We don\'t disappear after delivery.' },
+            ].map((item, i) => (
+              <div key={i} className="card-dark p-6 space-y-3 text-center">
+                <div className="w-12 h-12 rounded-full bg-[#39FF14]/10 flex items-center justify-center text-[#39FF14] mx-auto">{item.icon}</div>
+                <h3 className="text-base font-semibold">{item.title}</h3>
+                <p className="text-[#A7ACB8] text-sm leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Section: Tools We Work With */}
+      <section
+        id="tools"
+        ref={toolsRef}
+        className="relative py-24"
+        aria-label="Tools and Integrations We Work With"
+      >
+        <div className="w-full px-6 lg:px-16 max-w-[1400px] mx-auto">
+          <div className={`text-center space-y-6 mb-16 transition-all duration-1000 ${isVisible('tools') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
+            <span className="font-mono text-xs text-[#39FF14] tracking-widest uppercase">INTEGRATIONS</span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
+              Tools We Work With
+            </h2>
+            <p className="text-lg text-[#A7ACB8] max-w-2xl mx-auto">
+              We integrate with the tools your team already uses — plus 400+ more via n8n.
+            </p>
+          </div>
+
+          <div className={`grid md:grid-cols-2 lg:grid-cols-3 gap-8 transition-all duration-1000 delay-200 ${isVisible('tools') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+            {[
+              { category: 'CRM', tools: ['HubSpot', 'Salesforce', 'Pipedrive'] },
+              { category: 'Communication', tools: ['Slack', 'Gmail', 'Outlook'] },
+              { category: 'Productivity', tools: ['Notion', 'Airtable', 'Google Sheets'] },
+              { category: 'E-commerce', tools: ['Shopify', 'WooCommerce'] },
+              { category: 'AI Models', tools: ['GPT-4', 'Claude', 'Gemini'] },
+              { category: 'And More', tools: ['400+ integrations via n8n'] },
+            ].map((group, i) => (
+              <div key={i} className="card-dark p-6 space-y-3">
+                <h3 className="text-sm font-mono text-[#39FF14] uppercase tracking-wider">{group.category}</h3>
+                <div className="flex flex-wrap gap-2">
+                  {group.tools.map((tool) => (
+                    <span key={tool} className="px-3 py-1.5 text-sm text-[#F4F6FA] bg-[#05050A] border border-[#F4F6FA]/10 rounded-lg">{tool}</span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Section: How It Works */}
       <section
         id="how-it-works"
@@ -817,12 +970,18 @@ function App() {
                   </Button>
                 </form>
 
-                <div className="flex items-center justify-center gap-2 text-sm text-[#A7ACB8] pt-4">
-                  <Mail className="w-4 h-4" aria-hidden="true" />
-                  <span>Prefer email?</span>
-                  <a href="mailto:contact@agenticflow.me" className="text-[#39FF14] hover:underline" itemProp="email">
-                    contact@agenticflow.me
+                <div className="flex flex-col items-center gap-3 pt-4">
+                  <a href="https://calendly.com/husnainmehmood5290/30min" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-[#39FF14] hover:underline">
+                    <Calendar className="w-4 h-4" aria-hidden="true" />
+                    Or book directly on Calendly
                   </a>
+                  <div className="flex items-center gap-2 text-sm text-[#A7ACB8]">
+                    <Mail className="w-4 h-4" aria-hidden="true" />
+                    <span>Prefer email?</span>
+                    <a href="mailto:contact@agenticflow.me" className="text-[#39FF14] hover:underline" itemProp="email">
+                      contact@agenticflow.me
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
