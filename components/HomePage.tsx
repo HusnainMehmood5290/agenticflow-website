@@ -74,7 +74,7 @@ export default function HomePage() {
     const formObject = Object.fromEntries(formData.entries());
 
     try {
-      const response = await fetch('https://n8n.agenticflow.me/webhook/form_filled', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -84,7 +84,7 @@ export default function HomePage() {
 
       const data = await response.json();
 
-      if (data.success || response.ok) {
+      if (data.success) {
         setSubmitSuccess(true);
         form.reset();
         trackFormSubmit('contact');

@@ -42,3 +42,4 @@ coverage
 .turbo
 next-env.d.ts
 .netlify
+.env*.local
