@@ -53,11 +53,12 @@ export const metadata: Metadata = {
   },
   icons: {
     icon: [
+      { url: '/favicon.ico', sizes: '32x32', type: 'image/x-icon' },
       { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: 'https://ik.imagekit.io/d9541kfaqh/logo.png?tr=w-32,h-32', sizes: '32x32', type: 'image/png' },
-      { url: 'https://ik.imagekit.io/d9541kfaqh/logo.png?tr=w-16,h-16', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
     ],
-    apple: [{ url: 'https://ik.imagekit.io/d9541kfaqh/logo.png?tr=w-180,h-180', sizes: '180x180' }],
+    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180' }],
   },
   manifest: '/site.webmanifest',
   other: {
