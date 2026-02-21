@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useMemo } from 'react';
-import { ArrowRight, Calendar, Mail, CheckCircle, Zap, Clock, Shield, TrendingUp, ChevronDown, Star, Users, MessageSquare, Globe, Award } from 'lucide-react';
+import { ArrowRight, Calendar, Mail, CheckCircle, Zap, Clock, Shield, TrendingUp, ChevronDown, MessageSquare, Globe, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -608,94 +608,51 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Section: Testimonials */}
+      {/* Section: What You Get */}
       <section
         id="testimonials"
         ref={testimonialsRef}
         className="relative py-24"
-        aria-label="Client Testimonials - What Our Clients Say"
+        aria-label="What You Get When You Work With AgenticFlow"
       >
         <div className="w-full px-6 lg:px-16 max-w-[1400px] mx-auto">
           <div className={`text-center space-y-6 mb-16 transition-all duration-1000 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-10'}`}>
-            <span className="font-mono text-xs text-[#39FF14] tracking-widest uppercase">TESTIMONIALS</span>
+            <span className="font-mono text-xs text-[#39FF14] tracking-widest uppercase">WHAT YOU GET</span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold">
-              Trusted by Growing Teams
+              Built for Reliability
             </h2>
             <p className="text-lg text-[#A7ACB8] max-w-2xl mx-auto">
-              Businesses across e-commerce, SaaS, and professional services rely on AgenticFlow to automate their operations and reclaim hours every week.
+              Every automation we build is designed for production — with error handling, monitoring, and documentation included from day one.
             </p>
           </div>
 
-          <div className={`grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 transition-all duration-1000 delay-100 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
-            <div className="card-dark p-6 text-center">
-              <p className="text-3xl font-bold text-[#39FF14]">50+</p>
-              <p className="text-sm text-[#A7ACB8] mt-1">Workflows Deployed</p>
-            </div>
-            <div className="card-dark p-6 text-center">
-              <p className="text-3xl font-bold text-[#39FF14]">10+</p>
-              <p className="text-sm text-[#A7ACB8] mt-1">Hours Saved Weekly</p>
-            </div>
-            <div className="card-dark p-6 text-center">
-              <p className="text-3xl font-bold text-[#39FF14]">99.9%</p>
-              <p className="text-sm text-[#A7ACB8] mt-1">Uptime Guarantee</p>
-            </div>
-            <div className="card-dark p-6 text-center">
-              <p className="text-3xl font-bold text-[#39FF14]">2 Weeks</p>
-              <p className="text-sm text-[#A7ACB8] mt-1">Average Delivery</p>
-            </div>
-          </div>
-
-          <div className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-300 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
+          <div className={`grid md:grid-cols-3 gap-8 transition-all duration-1000 delay-100 ${isVisible('testimonials') ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
             <div className="card-dark p-8 space-y-4">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[#39FF14] text-[#39FF14]" />)}
+              <div className="w-12 h-12 rounded-lg bg-[#39FF14]/10 flex items-center justify-center">
+                <Shield className="w-6 h-6 text-[#39FF14]" />
               </div>
-              <p className="text-[#A7ACB8] leading-relaxed italic">
-                &quot;AgenticFlow automated our entire lead qualification pipeline. What used to take 3 hours of manual CRM updates every day now runs entirely on autopilot. The ROI was visible within the first week.&quot;
+              <h3 className="text-xl font-semibold">Error Handling Built In</h3>
+              <p className="text-[#A7ACB8] leading-relaxed text-sm">
+                Every workflow includes retry logic, fallback paths, and dead-letter queues. If something breaks at 2 AM, the system recovers automatically — no manual intervention needed.
               </p>
-              <div className="flex items-center gap-3 pt-2">
-                <div className="w-10 h-10 rounded-full bg-[#39FF14]/20 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-[#39FF14]" />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm">Sarah K.</p>
-                  <p className="text-xs text-[#A7ACB8]">Operations Lead, SaaS Startup</p>
-                </div>
-              </div>
             </div>
             <div className="card-dark p-8 space-y-4">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[#39FF14] text-[#39FF14]" />)}
+              <div className="w-12 h-12 rounded-lg bg-[#39FF14]/10 flex items-center justify-center">
+                <Clock className="w-6 h-6 text-[#39FF14]" />
               </div>
-              <p className="text-[#A7ACB8] leading-relaxed italic">
-                &quot;We needed n8n workflow automation for our e-commerce order processing and returns management. AgenticFlow delivered in 10 days with Slack notifications, auto-tagging, and full audit logs. Incredible work.&quot;
+              <h3 className="text-xl font-semibold">Fast Turnaround</h3>
+              <p className="text-[#A7ACB8] leading-relaxed text-sm">
+                Most workflows go from kickoff to production in 1-2 weeks. You get a working prototype within the first few days, with iterative refinement until it&apos;s exactly right.
               </p>
-              <div className="flex items-center gap-3 pt-2">
-                <div className="w-10 h-10 rounded-full bg-[#39FF14]/20 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-[#39FF14]" />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm">Marcus T.</p>
-                  <p className="text-xs text-[#A7ACB8]">Founder, E-Commerce Brand</p>
-                </div>
-              </div>
             </div>
             <div className="card-dark p-8 space-y-4">
-              <div className="flex gap-1">
-                {[...Array(5)].map((_, i) => <Star key={i} className="w-4 h-4 fill-[#39FF14] text-[#39FF14]" />)}
+              <div className="w-12 h-12 rounded-lg bg-[#39FF14]/10 flex items-center justify-center">
+                <TrendingUp className="w-6 h-6 text-[#39FF14]" />
               </div>
-              <p className="text-[#A7ACB8] leading-relaxed italic">
-                &quot;The 24/7 monitoring alone is worth it. We had a critical API change at 2 AM and AgenticFlow&apos;s self-healing workflows handled it automatically. No downtime, no manual intervention needed. Highly recommend for any team doing business process automation.&quot;
+              <h3 className="text-xl font-semibold">Full Documentation</h3>
+              <p className="text-[#A7ACB8] leading-relaxed text-sm">
+                Every project includes clear documentation, workflow diagrams, and a handoff walkthrough. You&apos;ll understand exactly how your automations work and how to maintain them.
               </p>
-              <div className="flex items-center gap-3 pt-2">
-                <div className="w-10 h-10 rounded-full bg-[#39FF14]/20 flex items-center justify-center">
-                  <Users className="w-5 h-5 text-[#39FF14]" />
-                </div>
-                <div>
-                  <p className="font-semibold text-sm">David L.</p>
-                  <p className="text-xs text-[#A7ACB8]">CTO, Agency</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
